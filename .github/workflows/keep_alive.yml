@@ -1,0 +1,19 @@
+name: Minecraft Server Auto Start
+
+on:
+  push:
+    branches:
+      - main  
+  schedule:
+    - cron: "0 */3 * * *"  
+  workflow_dispatch:  
+
+jobs:
+  start-server:
+    runs-on: ubuntu-latest
+    steps:
+        
+      - name: Chạy Minecraft Server
+        run: 
+          cd ../../
+          java -Xmx16G -Xms4G -jar server.jar nogui
