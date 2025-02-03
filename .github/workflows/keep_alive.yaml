@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  
+    schedule:
+    - cron: "0 */5 * * *"  
   workflow_dispatch:  
 
 jobs:
@@ -32,6 +34,15 @@ jobs:
       - name: Kiểm tra Java Version
         run: java -version
 
+      - name: Cài đặt `screen` để chạy server trong nền
+        run: sudo apt-get install screen
+
       - name: Chạy Minecraft Server
         run: 
-          java -Xmx16G -Xms4G -jar server.jar nogui
+          screen -dmS mc_server java -Xmx16G -Xms4G -jar server.jar nogui
+      
+      - name: Commit & Push thay đổi
+        run: |
+          git add .
+          git commit -m "Auto update server files"
+          git push origin main
