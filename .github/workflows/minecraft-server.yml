@@ -12,20 +12,6 @@ jobs:
   start-server:
     runs-on: ubuntu-latest
     steps:
-      - name: Cập nhật package list
-        run: sudo apt update
-
-      - name: Cài đặt Java (nếu chưa có)
-        run: sudo apt install -y openjdk-17-jre
-
-      - name: Tải Minecraft Server
-        run: |
-          mkdir -p minecraft_server
-          cd minecraft_server
-          wget -O server.jar https://piston-data.mojang.com/v1/objects/8f4dc63594b9db3c72e5e98b4a48db665dc2a8b6/server.jar
-
-      - name: Chấp nhận EULA
-        run: echo "eula=true" > minecraft_server/eula.txt
 
       - name: Chạy Minecraft Server
         run: |
