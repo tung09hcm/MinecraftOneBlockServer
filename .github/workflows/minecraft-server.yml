@@ -14,6 +14,5 @@ jobs:
     steps:
 
       - name: Chạy Minecraft Server
-        run: |
-          cd minecraft_server
+        run: 
           java -Xmx16G -Xms4G -jar server.jar nogui
