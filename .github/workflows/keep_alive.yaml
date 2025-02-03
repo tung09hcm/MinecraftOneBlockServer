@@ -12,8 +12,11 @@ jobs:
   start-server:
     runs-on: ubuntu-latest
     steps:
-        
+
+      - name: change directory
+        run:
+          cd ../../  
+
       - name: Chạy Minecraft Server
         run: 
-          cd ../../
           java -Xmx16G -Xms4G -jar server.jar nogui
