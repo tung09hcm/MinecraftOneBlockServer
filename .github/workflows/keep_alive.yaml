@@ -17,6 +17,12 @@ jobs:
         run:
           cd ../../  
 
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Kiểm tra thư mục hiện tại
+        run: pwd && ls -la
+
       - name: Chạy Minecraft Server
         run: 
           java -Xmx16G -Xms4G -jar server.jar nogui
